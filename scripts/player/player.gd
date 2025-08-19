@@ -14,6 +14,8 @@ func _ready() -> void:
 		printerr("The player scene needs a PlayerControllerComponent node.")
 
 func _physics_process(_delta: float) -> void:
+	_player_controller_component.interact()
+	
 	# Avoid null exceptions
 	if _moviment_component == null:
 		return

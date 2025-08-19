@@ -15,8 +15,6 @@ func moviment_direction(direction: Vector2) -> void:
 	_direction = direction
 
 func move(_delta):
-	print_debug(_direction)
-	print_debug(_entity.is_on_floor())
 	if orientation == 0: # Side-Scrolling
 		_side_scrolling_moviment(_delta)
 	if orientation == 1: # Top-Down
