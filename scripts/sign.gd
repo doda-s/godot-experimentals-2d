@@ -1,6 +1,7 @@
 extends Node2D
 
-var interactable_component: InteractableComponent
+@export var interactable_component: InteractableComponent
+@export var dialog_provider: DialogProvider
 
 func _ready() -> void:
 	interactable_component = get_node("InteractableComponent") as InteractableComponent
@@ -11,4 +12,4 @@ func _ready() -> void:
 		interactable_component.interaction_emitter.connect(_interact)
 
 func _interact():
-	print("Interagiu!")
+	dialog_provider.init_dialog()

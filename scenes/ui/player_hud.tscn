@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dasf0eah3mcul"]
+
+[ext_resource type="PackedScene" uid="uid://c83mrkppqekr0" path="res://scenes/ui/dialog_view.tscn" id="1_rcegr"]
+
+[node name="PlayerHud" type="CanvasLayer" unique_id=1863239705]
+
+[node name="DialogView" parent="." unique_id=715716298 instance=ExtResource("1_rcegr")]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_top = 0.0
+grow_vertical = 0
+opt_button_scene_path = "res://scenes/ui/option_button.tscn"
+
+[node name="InteractionHint" type="RichTextLabel" parent="." unique_id=450857531]
+visible = false
+offset_top = 230.0
+offset_right = 400.0
+offset_bottom = 249.0
+theme_override_font_sizes/normal_font_size = 8
+text = "Pressione E para interagir"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -19,9 +19,22 @@ run/main_scene="uid://3sm5oheicm4c"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+DialogHandler="*uid://bgbco4y3wr3x7"
+
 [dotnet]
 
 project/assembly_name="Godot Experimentals 2D"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://docs/": "gray",
+"res://scenes/": "green",
+"res://scripts/": "pink"
+}
 
 [input]
 

@@ -3,6 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://cbpcm6vtc5o87" path="res://scenes/preafabs/ground.tscn" id="1_e0pes"]
 [ext_resource type="PackedScene" uid="uid://pftpfvcl56bh" path="res://scenes/entities/player.tscn" id="2_agy4x"]
 [ext_resource type="PackedScene" uid="uid://djtqy8722xkrx" path="res://scenes/preafabs/sign.tscn" id="3_u152g"]
+[ext_resource type="PackedScene" uid="uid://dbcd02dvpuy70" path="res://scenes/components/interactable_component.tscn" id="4_l6t5g"]
+[ext_resource type="Script" uid="uid://bxnlco1rcf2o2" path="res://scripts/components/dialog_system/dialog_provider.gd" id="5_l6t5g"]
+[ext_resource type="PackedScene" uid="uid://dasf0eah3mcul" path="res://scenes/ui/player_hud.tscn" id="6_l6t5g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6t5g"]
+size = Vector2(110, 148)
 
 [node name="DialogSistemDemo" type="Node2D" unique_id=1052421270]
 
@@ -13,6 +19,24 @@ position = Vector2(587, 575)
 [node name="Player" parent="." unique_id=1563908014 instance=ExtResource("2_agy4x")]
 position = Vector2(585, 548)
 
-[node name="Sign" parent="." unique_id=817170993 instance=ExtResource("3_u152g")]
+[node name="Sign" parent="." unique_id=817170993 node_paths=PackedStringArray("interactable_component", "dialog_provider") instance=ExtResource("3_u152g")]
 z_index = -1
 position = Vector2(716, 573)
+interactable_component = NodePath("")
+dialog_provider = NodePath("DialogProvider")
+
+[node name="InteractableComponent" parent="Sign" unique_id=416612390 instance=ExtResource("4_l6t5g")]
+
+[node name="Area2D" type="Area2D" parent="Sign/InteractableComponent" unique_id=1118911322]
+position = Vector2(0, -76)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sign/InteractableComponent/Area2D" unique_id=276381967]
+shape = SubResource("RectangleShape2D_l6t5g")
+
+[node name="DialogProvider" type="Node2D" parent="Sign" unique_id=715676663]
+script = ExtResource("5_l6t5g")
+dialog_json_file = "res://assets/dialogs/demo/dialog_demo.json"
+context = "sign-text"
+metadata/_custom_type_script = "uid://bxnlco1rcf2o2"
+
+[node name="PlayerHud" parent="." unique_id=1863239705 instance=ExtResource("6_l6t5g")]

@@ -13,7 +13,11 @@ func _ready() -> void:
 		return
 	
 	interactable_area = get_child(0)
-	interactable_area.body_entered.connect(_on_area_enter)
+	if not interactable_area.body_entered.is_connected(_on_area_enter):
+		interactable_area.body_entered.connect(_on_area_enter)
+	
+	if not interactable_area.body_exited.is_connected(_on_area_exit):
+		interactable_area.body_exited.connect(_on_area_exit)
 
 func _on_area_enter(body: Node2D):
 	if body.name == "Player":
@@ -21,6 +25,13 @@ func _on_area_enter(body: Node2D):
 		playerControllerComponent = (body as Player).get_node("PlayerControllerComponent") as PlayerControllerComponent
 		if not playerControllerComponent.interaction.is_connected(_interaction_emitter):
 			playerControllerComponent.interaction.connect(_interaction_emitter)
+
+func _on_area_exit(body: Node2D):
+	if body.name == "Player":
+		var playerControllerComponent: PlayerControllerComponent
+		playerControllerComponent = (body as Player).get_node("PlayerControllerComponent") as PlayerControllerComponent
+		if playerControllerComponent.interaction.is_connected(_interaction_emitter):
+			playerControllerComponent.interaction.disconnect(_interaction_emitter)
 
 func _interaction_emitter():
 	interaction_emitter.emit()
