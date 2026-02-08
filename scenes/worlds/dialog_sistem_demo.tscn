@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://3sm5oheicm4c"]
+
+[ext_resource type="PackedScene" uid="uid://cbpcm6vtc5o87" path="res://scenes/preafabs/ground.tscn" id="1_e0pes"]
+[ext_resource type="PackedScene" uid="uid://pftpfvcl56bh" path="res://scenes/entities/player.tscn" id="2_agy4x"]
+[ext_resource type="PackedScene" uid="uid://djtqy8722xkrx" path="res://scenes/preafabs/sign.tscn" id="3_u152g"]
+
+[node name="DialogSistemDemo" type="Node2D" unique_id=1052421270]
+
+[node name="Ground" parent="." unique_id=1415418156 instance=ExtResource("1_e0pes")]
+z_index = -2
+position = Vector2(587, 575)
+
+[node name="Player" parent="." unique_id=1563908014 instance=ExtResource("2_agy4x")]
+position = Vector2(585, 548)
+
+[node name="Sign" parent="." unique_id=817170993 instance=ExtResource("3_u152g")]
+z_index = -1
+position = Vector2(716, 573)

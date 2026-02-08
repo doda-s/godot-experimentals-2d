@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdm3qd8hvrdog"]
+[gd_scene format=3 uid="uid://bdm3qd8hvrdog"]
 
 [ext_resource type="PackedScene" uid="uid://pftpfvcl56bh" path="res://scenes/entities/player.tscn" id="1_xfaor"]
-[ext_resource type="Texture2D" uid="uid://bqfrqakah6kk6" path="res://assets/sprites/world/ground-lixo.png" id="2_ce1xr"]
+[ext_resource type="Texture2D" uid="uid://bqfrqakah6kk6" path="res://assets/sprites/world/ground-placeholder.png" id="2_ce1xr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqeqr"]
 size = Vector2(1019, 16)
